@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import './TaskTwo.css';
 
 class TextTwo extends Component {
@@ -65,74 +66,96 @@ class TextTwo extends Component {
     const { checked } = this.state;
 
     return (
-      <div className="checkbox-container">
-        <h2>Nested Checkbox</h2>
+      <>
+        <div className="checkbox-container">
+          <h2>Nested Checkbox</h2>
 
-        <label>
-          <input
-            type="checkbox"
-            checked={checked.selectAll}
-            onChange={this.handleSelectAll}
-          />
-          Select All
-        </label>
-
-        {/* Fruits */}
-        <div className="category">
           <label>
             <input
               type="checkbox"
-              checked={Object.values(checked.fruits).every((v) => v)}
-              onChange={(e) =>
-                this.handleCategory("fruits", e.target.checked)
-              }
+              checked={checked.selectAll}
+              onChange={this.handleSelectAll}
             />
-            Fruits
+            Select All
           </label>
-          <div className="items">
-            {Object.keys(checked.fruits).map((item) => (
-              <label key={item}>
-                <input
-                  type="checkbox"
-                  checked={checked.fruits[item]}
-                  onChange={(e) =>
-                    this.handleItem("fruits", item, e.target.checked)
-                  }
-                />
-                {item}
-              </label>
-            ))}
-          </div>
-        </div>
 
-        {/* Vegetables */}
-        <div className="category">
-          <label>
-            <input
-              type="checkbox"
-              checked={Object.values(checked.vegetables).every((v) => v)}
-              onChange={(e) =>
-                this.handleCategory("vegetables", e.target.checked)
-              }
-            />
-            Vegetables
-          </label>
-          <div className="items">
-            {Object.keys(checked.vegetables).map((item) => (
-              <label key={item}>
-                <input
-                  type="checkbox"
-                  checked={checked.vegetables[item]}
-                  onChange={(e) =>
-                    this.handleItem("vegetables", item, e.target.checked)
-                  }
-                />
-                {item}
-              </label>
-            ))}
+          {/* Fruits */}
+          <div className="category">
+            <label>
+              <input
+                type="checkbox"
+                checked={Object.values(checked.fruits).every((v) => v)}
+                onChange={(e) =>
+                  this.handleCategory("fruits", e.target.checked)
+                }
+              />
+              Fruits
+            </label>
+            <div className="items">
+              {Object.keys(checked.fruits).map((item) => (
+                <label key={item}>
+                  <input
+                    type="checkbox"
+                    checked={checked.fruits[item]}
+                    onChange={(e) =>
+                      this.handleItem("fruits", item, e.target.checked)
+                    }
+                  />
+                  {item}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Vegetables */}
+          <div className="category">
+            <label>
+              <input
+                type="checkbox"
+                checked={Object.values(checked.vegetables).every((v) => v)}
+                onChange={(e) =>
+                  this.handleCategory("vegetables", e.target.checked)
+                }
+              />
+              Vegetables
+            </label>
+            <div className="items">
+              {Object.keys(checked.vegetables).map((item) => (
+                <label key={item}>
+                  <input
+                    type="checkbox"
+                    checked={checked.vegetables[item]}
+                    onChange={(e) =>
+                      this.handleItem("vegetables", item, e.target.checked)
+                    }
+                  />
+                  {item}
+                </label>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+        <button style={{
+          height: "40px",
+          width: "30%",
+          backgroundColor: "#1a73e8",
+          color: "#fff",
+          border: "none",
+          borderRadius: "8px",
+          cursor: "pointer"
+        }} >
+          <Link to='/web' style={{
+          height: "40px",
+          width: "30%",
+          backgroundColor: "#1a73e8",
+          color: "#fff",
+          border: "none",
+          borderRadius: "8px",
+          cursor: "pointer",
+            textDecoration: "wavy"
+        }}>Go Web</Link>
+        </button>
+      </>
     );
   }
 }
